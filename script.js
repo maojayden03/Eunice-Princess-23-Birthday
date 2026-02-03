@@ -3,6 +3,8 @@ const pages = document.querySelectorAll(".page");
 let currentPage = 0;
 
 function nextPage() {
+  if (currentPage >= pages.length - 1) return;
+
   pages[currentPage].classList.remove("active");
   currentPage++;
   pages[currentPage].classList.add("active");
@@ -10,6 +12,14 @@ function nextPage() {
   if (currentPage === 2) {
     startTyping();
   }
+}
+
+function prevPage() {
+  if (currentPage <= 0) return;
+
+  pages[currentPage].classList.remove("active");
+  currentPage--;
+  pages[currentPage].classList.add("active");
 }
 
 /* PHOTO GALLERY */
@@ -46,12 +56,27 @@ const message = `
 `;
 
 let i = 0;
+let typingStarted = false;
 
 function startTyping() {
+  if (typingStarted) return;
+  typingStarted = true;
+
   const target = document.getElementById("typewriter");
+  let buffer = "";
+
   const interval = setInterval(() => {
-    target.textContent += message[i];
+    buffer += message[i];
+
+    target.innerHTML = buffer
+      .replace(/\n\n/g, "</p><p>")
+      .replace(/\n/g, "<br>");
+
     i++;
-    if (i >= message.length) clearInterval(interval);
+
+    if (i >= message.length) {
+      target.innerHTML = `<p>${target.innerHTML}</p>`;
+      clearInterval(interval);
+    }
   }, 50);
 }
