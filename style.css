@@ -69,3 +69,7 @@ button:hover {
   font-size: 15px;
   line-height: 1.6;
 }
+
+#typewriter p {
+  margin-bottom: 12px;
+}
