@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+  <!-- PAGE 1 -->
+  <section class="page active">
+    <h1>Happy Birthday 🎂</h1>
+    <p>You make my world brighter every day ✨</p>
+    <button onclick="nextPage()">Next 💕</button>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page">
+    <h2>Pics of Baby 📸</h2>
+    <div class="photo-frame">
+      <img id="photo" src="images/pic1.jpg">
+    </div>
+    <button onclick="nextPhoto()">Next Photo</button>
+    <button onclick="nextPage()">Next 💌</button>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page">
+    <h2>For You ❤️</h2>
+    <p id="typewriter"></p>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
